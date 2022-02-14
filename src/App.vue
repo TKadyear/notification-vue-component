@@ -1,21 +1,23 @@
-<script setup>
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import NotificationMessage from "./components/NotificationMessage.vue";
+export default {
+  components: {
+    NotificationMessage
+  }
+}
 </script>
-
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <h1>Notification Center</h1>
+  <NotificationMessage :type="'info'" :header="'You are eligible for a reward'">
+    <p>
+      Go to
+      <b>special offers</b> page to see now
+    </p>
+  </NotificationMessage>
+  <NotificationMessage :type="'error'" :header="'Oh no! We have an error'">
+    <p>Reload this page</p>
+  </NotificationMessage>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
