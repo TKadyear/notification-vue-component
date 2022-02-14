@@ -8,14 +8,10 @@ export default {
     type: { type: String, default: "info" },
     header: { type: String, default: "Notification message" },
   },
-  data() {
-    return {
-      hidden: false
-    }
-  },
   methods: {
-    hide() {
-      this.hidden = true;
+    removeNotification() {
+      const element = document.querySelector('.notification')
+      element.remove(element)
     }
   }
 }
@@ -26,7 +22,7 @@ export default {
   <div class="notification" v-if="!hidden" :class="type">
     <div class="header">{{ header }}</div>
     <slot></slot>
-    <IconCross class="close" @click="hide"></IconCross>
+    <IconCross class="close" @click="removeNotification"></IconCross>
   </div>
 </template>
 
